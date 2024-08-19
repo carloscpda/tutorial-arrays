@@ -14,21 +14,25 @@ const MonacoEditor = ({
   const [feedback, setFeedback] = useState<{
     state: "idle" | "correct" | "incorrect" | "error";
     message: string;
+    result: string;
   }>({
     state: "idle",
     message: "",
+    result: "-",
   });
 
   const statusColorMap = {
     idle: "black",
     correct: "green",
-    incorrect: "orange",
-    error: "red",
+    incorrect: "black",
+    error: "black",
   };
 
   const onCodeChange = (code: string) => {
     try {
       const userFunction = new Function(code + "; return myFunction;")();
+
+      const result = userFunction();
 
       const isOk = testCases.every(({ input, output }) => {
         const testResult = userFunction(...input);
@@ -42,16 +46,19 @@ const MonacoEditor = ({
           ? {
               state: "correct",
               message: "✅ ¡Bien hecho! 🎉",
+              result: JSON.stringify(result),
             }
           : {
               state: "incorrect",
               message: "❌ Wooops 🤔, algo no está bien",
+              result: JSON.stringify(result),
             }
       );
     } catch (error) {
       setFeedback({
         state: "error",
-        message: `❌ Error: ${(error as Error).message}`,
+        message: "❌ Wooops 🤔, algo no está bien",
+        result: `Error: ${(error as Error).message}`,
       });
     }
   };
@@ -63,24 +70,38 @@ const MonacoEditor = ({
         defaultValue={initialValue}
         onChange={onCodeChange}
         value={initialValue}
-        style={{ border: `2px solid ${statusColorMap[feedback.state]}` }}
+        style={{ border: `1px solid black` }}
       />
-      <div style={{ marginTop: "8px", marginBottom: "24px" }}>
-        {feedback.message}
-      </div>
-      <details style={{ marginBottom: "64px" }}>
-        <summary>💡 Ver solución</summary>
+      <div style={{ marginTop: "16px" }}>
+        <h4>Output</h4>
         <pre
           style={{
-            padding: "8px",
-            margin: "8px 0",
-            backgroundColor: "#fefefe",
-            border: "1px solid #eee",
+            border: `1px solid black`,
+            marginTop: "2px",
+            padding: "4px 8px",
+            backgroundColor: feedback.state === "correct" ? "#def2da" : "#fff",
+            borderColor: statusColorMap[feedback.state],
           }}
         >
-          {solution}
+          {feedback.result}
         </pre>
-      </details>
+      </div>
+      <div style={{ marginTop: "16px" }}>
+        <h4>Solución</h4>
+        <details style={{ marginBottom: "64px" }}>
+          <summary>Ver solución</summary>
+          <pre
+            style={{
+              padding: "8px",
+              margin: "8px 0",
+              backgroundColor: "#fefefe",
+              border: "1px solid #eee",
+            }}
+          >
+            {solution}
+          </pre>
+        </details>
+      </div>
     </div>
   );
 };

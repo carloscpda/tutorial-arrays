@@ -1,103 +1,55 @@
 import Playground from "./playground";
 
-# Método .sort()
+# Método .some()
 
-El método `sort()` ordena los elementos de un array **in place** y devuelve el array. La ordenación no es necesariamente estable. La forma en que se ordenan los elementos depende de la implementación de la función de comparación.
+El método `some()` verifica si al menos un elemento de un array cumple con la condición implementada por la función proporcionada. Devuelve `true` si encuentra un elemento que cumpla la condición; de lo contrario, devuelve `false`.
 
 ## Sintaxis
 
 ```jsx
-array.sort((a, b) => {
-  // Lógica de comparación
+const resultado = array.some((currentValue, index, originalArray) => {
+  // Retorna una condición booleana
 });
 ```
 
-El método `sort()` recibe una función de comparación que compara dos valores. Esta función debe retornar:
+El método `some()` recibe una función de callback que se ejecuta una vez por cada elemento del array. Esta función recibe hasta tres argumentos:
 
-- Un número negativo si el primer valor debe aparecer antes que el segundo.
-- Un número positivo si el segundo valor debe aparecer antes que el primero.
-- Cero si son equivalentes.
+- `currentValue`: El elemento actual que se está procesando en el array.
+- `index` (Opcional): El índice del elemento actual que se está procesando en el array.
+- `originalArray` (Opcional): El array sobre el que se llamó some.
 
 ## Ejemplo
 
 ```jsx
-const numbers = [3, 1, 4, 1, 5, 9];
+const numbers = [1, 2, 3, 4, 5];
 
-numbers.sort((a, b) => a - b);
+const hasEvenNumber = numbers.some((number) => number % 2 === 0);
 
-// [1, 1, 3, 4, 5, 9]
+// true
 ```
 
 ## Usos comunes
 
-- Ordenar números de menor a mayor o viceversa.
-- Ordenar cadenas de texto alfabéticamente.
-- Ordenar objetos en función de una propiedad.
+- Verificar si al menos un elemento cumple con una condición.
+- Validar si un array contiene un valor específico.
 
 ## Ahora te toca a ti
 
-### Ejercicio 1 (Fácil)
+### Ejercicio 1
 
-Dado el siguiente array de números, ordénalos de mayor a menos.
-
-<Playground
-  initialValue={`
-function myFunction(numbers = [5, 3, 8, 1, 2]) {
-  return numbers.sort(/* your code */);
-}
-  `}
-  testCases={[
-    { input: [[]], output: [] },
-    { input: [[5, 3, 8]], output: [8, 5, 3] },
-    { input: [[9, 1, 4]], output: [9, 4, 1] },
-  ]}
-  solution={`numbers.sort((a, b) => b - a);`}
-/>
-
-### Ejercicio 2
-
-Dado el siguiente array de objetos que representan productos con un precio, ordénalos por precio de mayor a menor.
+Dado el siguiente array de números, verifica si al menos uno de ellos es mayor a 10.
 
 <Playground
   initialValue={`
-function myFunction(products = [{ name: "A", price: 30 }, { name: "B", price: 10 }, { name: "C", price: 20 }]) {
-  return products.sort(/* your code */);
+function myFunction(numbers = [5, 13, 8, 1, 2]) {
+  return numbers.some(/* your code */);
 }
   `}
   testCases={[
-    { input: [[]], output: [] },
-    {
-      input: [
-        [
-          { name: "A", price: 30 },
-          { name: "B", price: 10 },
-          { name: "C", price: 20 },
-        ],
-      ],
-      output: [
-        { name: "A", price: 30 },
-        { name: "C", price: 20 },
-        { name: "B", price: 10 },
-      ],
-    },
-    {
-      input: [
-        [
-          { name: "X", price: 50 },
-          { name: "Y", price: 15 },
-          { name: "Z", price: 25 },
-        ],
-      ],
-      output: [
-        { name: "X", price: 50 },
-        { name: "Z", price: 25 },
-        { name: "Y", price: 15 },
-      ],
-    },
+    { input: [[]], output: false },
+    { input: [[5, 3, 8]], output: false },
+    { input: [[9, 1, 4]], output: false },
+    { input: [[9, 1, 14]], output: true },
   ]}
-  solution={`products.sort((a, b) => b.price - a.price);`}
+  solution={`numbers.some(number => number > 10);`}
 />
-
-## Recursos adicionales
-
-- [MDN Web Docs - Array.prototype.sort()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)

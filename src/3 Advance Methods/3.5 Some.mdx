@@ -35,7 +35,7 @@ const hasEvenNumber = numbers.some((number) => number % 2 === 0);
 
 ## Ahora te toca a ti
 
-### Ejercicio 1
+### Ejercicio 1 🌶️
 
 Dado el siguiente array de números, verifica si al menos uno de ellos es mayor a 10.
 
@@ -53,3 +53,26 @@ function myFunction(numbers = [5, 13, 8, 1, 2]) {
   ]}
   solution={`numbers.some(number => number > 10);`}
 />
+
+### Ejercicio 2 🌶️🌶️🌶️
+
+Dado el siguiente array de números, verifica si alguno de ellos es menor al anterior.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [5, 13, 8, 1, 2]) {
+  return numbers.some(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: false },
+    { input: [[5, 3, 8]], output: true },
+    { input: [[9, 1, 4]], output: true },
+    { input: [[9, 14, 20]], output: false },
+  ]}
+  solution={`numbers.some((number, index, array) => index !== 0 && number < array[index - 1]);`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs: Array.prototype.some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)

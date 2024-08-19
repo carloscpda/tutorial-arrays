@@ -36,9 +36,9 @@ numbers.sort((a, b) => a - b);
 
 ## Ahora te toca a ti
 
-### Ejercicio 1
+### Ejercicio 1 🌶️
 
-Dado el siguiente array de números, ordénalos de mayor a menos.
+Dado el siguiente array de números, ordénalos de mayor a menor.
 
 <Playground
   initialValue={`
@@ -54,48 +54,28 @@ function myFunction(numbers = [5, 3, 8, 1, 2]) {
   solution={`numbers.sort((a, b) => b - a);`}
 />
 
-### Ejercicio 2
+### Ejercicio 2 🌶️🌶️
 
-Dado el siguiente array de objetos que representan productos con un precio, ordénalos por precio de mayor a menor.
+Dado el siguiente array de nombres de ciudad, ordenalos por longitud de nombre de menor a mayor.
 
 <Playground
   initialValue={`
-function myFunction(products = [{ name: "A", price: 30 }, { name: "B", price: 10 }, { name: "C", price: 20 }]) {
-  return products.sort(/* your code */);
+function myFunction(cities = ["New York", "Los Angeles", "Chicago", "Houston"]) {
+  return cities.sort(/* your code */);
 }
   `}
   testCases={[
     { input: [[]], output: [] },
     {
-      input: [
-        [
-          { name: "A", price: 30 },
-          { name: "B", price: 10 },
-          { name: "C", price: 20 },
-        ],
-      ],
-      output: [
-        { name: "A", price: 30 },
-        { name: "C", price: 20 },
-        { name: "B", price: 10 },
-      ],
+      input: [["New York", "Los Angeles", "Chicago", "Houston"]],
+      output: ["Chicago", "Houston", "New York", "Los Angeles"],
     },
     {
-      input: [
-        [
-          { name: "X", price: 50 },
-          { name: "Y", price: 15 },
-          { name: "Z", price: 25 },
-        ],
-      ],
-      output: [
-        { name: "X", price: 50 },
-        { name: "Z", price: 25 },
-        { name: "Y", price: 15 },
-      ],
+      input: [["Madrid", "Barcelona", "Valencia"]],
+      output: ["Madrid", "Valencia", "Barcelona"],
     },
   ]}
-  solution={`products.sort((a, b) => b.price - a.price);`}
+  solution={`cities.sort((a, b) => a.length - b.length);`}
 />
 
 ## Recursos adicionales

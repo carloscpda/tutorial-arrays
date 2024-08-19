@@ -1,0 +1,89 @@
+import Playground from "../playground";
+
+# Método .find()
+
+El método `find()` devuelve el valor del primer elemento del array que cumple con la función de prueba proporcionada. Si ningún valor cumple la función de prueba, se devuelve `undefined`.
+
+## Sintaxis
+
+```jsx
+const elemento = array.find((currentValue, index, originalArray) => {
+  // Condición a cumplir
+});
+```
+
+El método `find()` recibe una función de callback que se ejecuta una vez por cada elemento del array hasta que se encuentra uno que cumple con la condición. Esta función recibe hasta tres argumentos:
+
+- currentValue: El elemento actual que se está procesando en el array.
+- index (Opcional): El índice del elemento actual que se está procesando en el array.
+- originalArray (Opcional): El array sobre el que se llamó find.
+
+## Ejemplo
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+const firstEven = numbers.find((number) => number % 2 === 0);
+
+// firstEven será 2
+```
+
+## Usos comunes
+
+- Encontrar el primer elemento en un array que cumple con una condición específica.
+- Buscar un objeto en un array de objetos basado en una propiedad.
+
+## Ahora te toca a ti
+
+### Ejercicio 1 🌶️
+
+Dado el siguiente array de números, encuentra el primer número mayor que 10.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [5, 13, 8, 1, 2]) {
+  return numbers.find(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: undefined },
+    { input: [[5, 3, 8]], output: undefined },
+    { input: [[9, 1, 4]], output: undefined },
+    { input: [[9, 1, 14]], output: 14 },
+  ]}
+  solution={`numbers.find(number => number > 10);`}
+/>
+
+### Ejercicio 2 🌶️🌶️
+
+Dado el siguiente array de objetos con el nombre y la edad de personas, encuentra el primer objeto con una edad mayor a 18 y menor a 30.
+
+<Playground
+  initialValue={`
+function myFunction(people = [
+  { name: "Alice", age: 32 },
+  { name: "Bob", age: 17 },
+  { name: "Charlie", age: 25 },
+]) {
+  return people.find(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: undefined },
+    {
+      input: [
+        [
+          { name: "Alice", age: 25 },
+          { name: "Bob", age: 17 },
+          { name: "Charlie", age: 30 },
+        ],
+      ],
+      output: { name: "Alice", age: 25 },
+    },
+  ]}
+  solution={`people.find(person => person.age > 18 && person.age < 30);`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs: Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)

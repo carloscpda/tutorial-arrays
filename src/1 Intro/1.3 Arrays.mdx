@@ -6,7 +6,7 @@ Un array en JavaScript es una estructura de datos que permite almacenar y organi
 
 ## ¿Por qué son importantes los arrays?
 
-Los arrays son uno de los pilares básicos de la programación en JavaScript y en muchos otros lenguajes de programación. Su importancia radica en que permiten organizar datos de forma ordenada, acceder a ellos de manera eficiente, y realizar operaciones complejas, como búsquedas, filtrados o transformaciones, de forma simple. Al manejar arrays, puedes simplificar y mejorar tu código, haciéndolo más legible y fácil de mantener. Además, los arrays son extremadamente versátiles, ya que permiten almacenar desde listas sencillas hasta estructuras de datos más complejas, lo que los convierte en una herramienta esencial para cualquier desarrollador.
+Los arrays son uno de los pilares básicos de la programación en JavaScript y en muchos otros lenguajes de programación. Su importancia radica en que permiten organizar datos de forma ordenada, acceder a ellos de manera eficiente, y realizar operaciones complejas, como **búsquedas, filtrados o transformaciones**, de forma simple. Al manejar arrays, puedes simplificar y mejorar tu código, haciéndolo más legible y fácil de mantener. Además, los arrays son extremadamente versátiles, ya que permiten almacenar desde listas sencillas hasta estructuras de datos más complejas, lo que los convierte en una herramienta esencial para cualquier desarrollador.
 
 ## ¿Cómo se crean los arrays en JavaScript?
 
@@ -34,4 +34,27 @@ La longitud de un array se calcula utilizando la propiedad `length`. Esta propie
 let frutas = ["manzana", "banana", "naranja"];
 
 console.log(frutas.length); // 3
+```
+
+## ¿Cómo se accede a los elementos de un array?
+
+Para acceder a un elemento específico de un array, se utiliza su índice entre corchetes `[]`. El índice indica la posición del elemento en el array, comenzando desde 0 para el primer elemento. Puedes acceder a los elementos del array tanto para leer su valor como para modificarlo.
+
+```javascript
+let frutas = ["manzana", "banana", "naranja"];
+
+console.log(frutas[0]); // "manzana"
+console.log(frutas[1]); // "banana"
+```
+
+## ¿Cómo se modifican los elementos de un array?
+
+Para modificar un elemento específico de un array, se accede al elemento mediante su índice y se asigna un nuevo valor. Puedes modificar cualquier elemento del array en cualquier momento, independientemente de su posición.
+
+```javascript
+let frutas = ["manzana", "banana", "naranja"];
+
+frutas[1] = "pera";
+
+console.log(frutas); // ["manzana", "pera", "naranja"]
 ```

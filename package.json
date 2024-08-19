@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "start": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build": "storybook build",
+    "serve": "storybook serve storybook-static"
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",

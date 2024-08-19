@@ -37,7 +37,6 @@ const MonacoEditor = ({
       const isOk = testCases.every(({ input, output }) => {
         const testResult = userFunction(...input);
 
-        console.log(testResult, output);
         return JSON.stringify(testResult) === JSON.stringify(output);
       });
 
@@ -64,7 +63,7 @@ const MonacoEditor = ({
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: "64px" }}>
       <CodeMirror
         extensions={[javascript({ jsx: true })]}
         defaultValue={initialValue}
@@ -86,9 +85,9 @@ const MonacoEditor = ({
           {feedback.result}
         </pre>
       </div>
-      <div style={{ marginTop: "16px" }}>
+      {/* <div style={{ marginTop: "16px" }} className="solution">
         <h4>Solución</h4>
-        <details style={{ marginBottom: "64px" }}>
+        <details>
           <summary>Ver solución</summary>
           <pre
             style={{
@@ -101,7 +100,7 @@ const MonacoEditor = ({
             {solution}
           </pre>
         </details>
-      </div>
+      </div> */}
     </div>
   );
 };

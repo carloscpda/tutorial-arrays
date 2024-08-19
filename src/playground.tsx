@@ -85,7 +85,7 @@ const MonacoEditor = ({
           {feedback.result}
         </pre>
       </div>
-      {/* <div style={{ marginTop: "16px" }} className="solution">
+      {/* <div style={{ marginTop: "16px" }}>
         <h4>Solución</h4>
         <details>
           <summary>Ver solución</summary>

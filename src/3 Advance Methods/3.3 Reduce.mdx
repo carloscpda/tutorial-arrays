@@ -56,7 +56,7 @@ function myFunction(numbers = [1, 2, 3, 4, 5]) {
     { input: [[1, 2, 3]], output: 6 },
     { input: [[5, 10, 15]], output: 30 },
   ]}
-  solution={`numbers.reduce((acumulador, number) => acumulador + number, 0);`}
+  solution={`return numbers.reduce((acumulador, number) => acumulador + number, 0);`}
 />
 
 ### Ejercicio 2 🌶️
@@ -77,7 +77,7 @@ function myFunction(words = ["Hello", " ", "World", "!"]) {
       output: "JavaScript es genial",
     },
   ]}
-  solution={`words.reduce((acumulador, word) => acumulador + word, "");`}
+  solution={`return words.reduce((acumulador, word) => acumulador + word, "");`}
 />
 
 ### Ejercicio 3 🌶️🌶️
@@ -111,7 +111,7 @@ function myFunction(cart = [{ price: 10, quantity: 2 }, { price: 5, quantity: 3 
       output: 300,
     },
   ]}
-  solution={`cart.reduce((acumulador, item) => acumulador + item.price * item.quantity, 0);`}
+  solution={`return cart.reduce((acumulador, item) => acumulador + item.price * item.quantity, 0);`}
 />
 
 ## Recursos adicionales

@@ -32,6 +32,8 @@ const MonacoEditor = ({
 
       const isOk = testCases.every(({ input, output }) => {
         const testResult = userFunction(...input);
+
+        console.log(testResult, output);
         return JSON.stringify(testResult) === JSON.stringify(output);
       });
 

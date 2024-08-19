@@ -1,0 +1,84 @@
+import Playground from "./playground";
+
+# Método .map()
+
+El método `map()` crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+
+## Sintaxis
+
+```jsx
+const nuevoArray = array.map((currentValue, index, originalArray) => {
+  // Retorna valor para nuevoArray
+});
+```
+
+El método `map()` recibe una función de callback que se ejecuta una vez por cada elemento del array. Esta función recibe hasta tres argumentos:
+
+- `currentValue`: El elemento actual que se está procesando en el array.
+- `index` (Opcional): El índice del elemento actual que se está procesando en el array.
+- `originalArray` (Opcional): El array sobre el que se llamó `map`.
+
+## Ejemplo
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.map((number) => number * 2);
+
+// [2, 4, 6, 8, 10]
+```
+
+## Usos comunes
+
+- Transformar un array de números aplicando una operación matemática.
+- Modificar las propiedades de un array de objetos.
+
+## Ahora te toca a ti
+
+### Ejercicio 1
+
+Dado el siguiente array, crea un nuevo array de los numeros elevados al cuadrado.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [1, 2, 3, 4, 5]) {
+  return numbers.map(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    { input: [[1, 2, 3]], output: [1, 4, 9] },
+    { input: [[5, 10, 15]], output: [25, 100, 225] },
+  ]}
+  solution={`numbers.map((number) => number ** 2);`}
+/>
+
+### Ejercicio 2
+
+Dado el siguiente array de objetos con el nombre y la edad de personas, crea un nuevo array con los nombres de las personas.
+
+<Playground
+  initialValue={`
+function myFunction(persons = [{ name: "Alice", age: 25 }, { name: "Bob", age: 30 }]) {
+  return persons.map(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    {
+      input: [
+        [
+          { name: "Alicia", age: 25 },
+          { name: "Pedro", age: 30 },
+        ],
+      ],
+      output: ["Alicia", "Pedro"],
+    },
+    { input: [[{ name: "Alicia", age: 35 }]], output: ["Alicia"] },
+  ]}
+  solution={`persons.map((person) => person.name);`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.map()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/map)

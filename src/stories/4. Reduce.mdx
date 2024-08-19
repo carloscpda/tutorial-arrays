@@ -1,0 +1,119 @@
+import Playground from "./playground";
+
+# Método .reduce()
+
+El método `reduce()` ejecuta una función reductora sobre cada elemento de un array, devolviendo como resultado un único valor.
+
+## Sintaxis
+
+```jsx
+const resultado = array.reduce(
+  (acumulador, currentValue, index, originalArray) => {
+    // Lógica para actualizar el acumulador
+    return nuevoAcumulador;
+  },
+  valorInicial
+);
+```
+
+El método `reduce()` recibe una función de callback que se ejecuta una vez por cada elemento del array (excepto el primer valor si se proporciona un `valorInicial`). Esta función recibe hasta cuatro argumentos:
+
+- `acumulador`: El acumulador que guarda el valor acumulado de la operación.
+- `currentValue`: El elemento actual que se está procesando en el array.
+- `index` (Opcional): El índice del elemento actual que se está procesando en el array.
+- `originalArray` (Opcional): El array sobre el que se llamó `reduce`.
+
+## Ejemplo
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+const suma = numbers.reduce((acumulador, number) => acumulador + number, 0);
+
+// 15
+```
+
+## Usos comunes
+
+- Sumar todos los elementos de un array.
+- Concatenar todos los elementos de un array en una sola cadena.
+- Contar la ocurrencia de elementos en un array.
+
+## Ahora te toca a ti
+
+### Ejercicio 1 (Fácil)
+
+Dado el siguiente array de números, devuelve la suma de todos los elementos.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [1, 2, 3, 4, 5]) {
+  return numbers.reduce(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: 0 },
+    { input: [[1, 2, 3]], output: 6 },
+    { input: [[5, 10, 15]], output: 30 },
+  ]}
+  solution={`numbers.reduce((acumulador, number) => acumulador + number, 0);`}
+/>
+
+### Ejercicio 2
+
+Dado el siguiente array de strings, devuelve una cadena que sea la concatenación de todos los elementos.
+
+<Playground
+  initialValue={`
+function myFunction(words = ["Hello", " ", "World", "!"]) {
+  return words.reduce(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: "" },
+    { input: [["Hello", " ", "World"]], output: "Hello World" },
+    {
+      input: [["JavaScript", " ", "es", "genial"]],
+      output: "JavaScript es genial",
+    },
+  ]}
+  solution={`words.reduce((acumulador, word) => acumulador + word, "");`}
+/>
+
+### Ejercicio 3
+
+Dado el siguiente array de objetos que representan productos en un carrito de compras, devuelve el precio total de todos los productos.
+
+<Playground
+  initialValue={`
+function myFunction(cart = [{ price: 10, quantity: 2 }, { price: 5, quantity: 3 }]) {
+  return cart.reduce(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: 0 },
+    {
+      input: [
+        [
+          { price: 10, quantity: 1 },
+          { price: 5, quantity: 2 },
+        ],
+      ],
+      output: 20,
+    },
+    {
+      input: [
+        [
+          { price: 100, quantity: 1 },
+          { price: 200, quantity: 1 },
+        ],
+      ],
+      output: 300,
+    },
+  ]}
+  solution={`cart.reduce((acumulador, item) => acumulador + item.price * item.quantity, 0);`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.reduce()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)

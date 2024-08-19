@@ -1,0 +1,87 @@
+import Playground from "./playground";
+
+# Método .filter()
+
+El método `filter()` crea un nuevo array con todos los elementos que cumplan con la condición implementada por la función dada.
+
+## Sintaxis
+
+```jsx
+const nuevoArray = array.filter((currentValue, index, originalArray) => {
+  // Retorna true o false
+});
+```
+
+Si la función retorna `true`, el elemento actual se incluirá en el nuevo array. Si retorna `false`, el elemento actual no se incluirá.
+
+## Parámetros
+
+- `currentValue`: El elemento actual que se está procesando en el array.
+- `index` (Opcional): El índice del elemento actual que se está procesando en el array.
+- `originalArray` (Opcional): El array sobre el que se llamó `filter`.
+
+## Ejemplo
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.filter((number) => number >= 0);
+```
+
+## Usos comunes
+
+- Filtrar elementos de un array que cumplan con una condición.
+- Eliminar elementos no deseados de un array.
+
+## Ahora te toca a ti
+
+### Ejercicio 1
+
+Dado el siguiente array de numeros, crea un nuevo array con los numeros pares.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [1, 2, 3, 4, 5]) {
+  return numbers.filter(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    { input: [[1, 2, 3]], output: [2] },
+    { input: [[5, 10, 15, 20]], output: [10, 20] },
+  ]}
+  solution={`numbers.filter((number) => number % 2 === 0);`}
+/>
+
+### Ejercicio 2
+
+Dado el siguiente array de objetos con el nombre y la edad de personas, crea un nuevo array con las personas mayores de edad.
+
+<Playground
+  initialValue={`
+function myFunction(people = [{ name: "Alice", age: 25 }, { name: "Bob", age: 17 }, { name: "Charlie", age: 30 }]) {
+  return people.filter(/* your code */);
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    {
+      input: [
+        [
+          { name: "Alice", age: 25 },
+          { name: "Bob", age: 17 },
+          { name: "Charlie", age: 30 },
+        ],
+      ],
+      output: [
+        { name: "Alice", age: 25 },
+        { name: "Charlie", age: 30 },
+      ],
+    },
+  ]}
+  solution={`people.filter((person) => person.age >= 18);`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)

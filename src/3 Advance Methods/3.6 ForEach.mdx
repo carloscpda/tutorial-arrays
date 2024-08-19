@@ -1,0 +1,90 @@
+import Playground from "../playground";
+
+# Método .forEach()
+
+El método `forEach()` ejecuta una función por cada elemento de un array. No devuelve ningún valor.
+
+## Sintaxis
+
+```jsx
+array.forEach((currentValue, index, originalArray) => {
+  // Lógica para ejecutar por cada elemento
+});
+```
+
+El método `forEach()` recibe una función de callback que se ejecuta una vez por cada elemento del array. Esta función recibe hasta tres argumentos:
+
+- `currentValue`: El elemento actual que se está procesando en el array.
+- `index` (Opcional): El índice del elemento actual que se está procesando en el array.
+- `originalArray` (Opcional): El array sobre el que se llamó `forEach`.
+
+## Ejemplo
+
+```jsx
+const numbers = [1, 2, 3, 4, 5];
+
+numbers.forEach((number) => {
+  console.log(number);
+});
+
+// Output en la consola:
+// 1
+// 2
+// 3
+// 4
+// 5
+```
+
+## Usos comunes
+
+- Ejecutar efectos secundarios en cada elemento de un array.
+- Iterar sobre un array para realizar operaciones como imprimir, modificar o realizar cálculos.
+
+## Ahora te toca a ti
+
+### Ejercicio 1 🌶️🌶️
+
+Dado el siguiente array de números, haz una copia en un nuevo array.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [1, 2, 3, 4, 5]) {
+  const copy = [];
+  numbers.forEach(/* your code */);
+  return copy;
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    { input: [[1, 2, 3]], output: [1, 2, 3] },
+    { input: [[5, 10, 15]], output: [5, 10, 15] },
+  ]}
+  solution={`numbers.forEach((number) => copy.push(number));`}
+/>
+
+### Ejercicio 2 🌶️🌶️🌶️
+
+Dado el siguiente array de strings, crea un array vacío y agrega cada string en mayúsculas.
+
+<Playground
+  initialValue={`
+function myFunction(words = ["hello", "world"]) {
+  const upperCaseWords = [];
+  words.forEach(/* your code */);
+  return upperCaseWords;
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    { input: [["hello", "world"]], output: ["HELLO", "WORLD"] },
+    {
+      input: [["javascript", "es", "genial"]],
+      output: ["JAVASCRIPT", "ES", "GENIAL"],
+    },
+  ]}
+  solution={`words.forEach((word) => upperCaseWords.push(word.toUpperCase()));`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.forEach()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)

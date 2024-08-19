@@ -24,4 +24,4 @@ Si quieres contribuir a este proyecto, sigue estos pasos:
 
 ## Contacto
 
-Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue o contactar conmigo a través de mi perfil de GitHub.
+Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue o contactar conmigo a través de [mi perfil de GitHub](https://github.com/carloscpda).

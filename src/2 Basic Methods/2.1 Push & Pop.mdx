@@ -1,35 +1,42 @@
-
 import Playground from "../playground";
 
 # Métodos `.push()` y `.pop()`
 
-El método `push()` añade uno o más elementos al final de un array y devuelve la nueva longitud del array. El método `pop()`, por otro lado, elimina el último elemento de un array y lo devuelve. Ambos métodos modifican el array original **in place**.
+El método `push()` añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
+
+El método `pop()`, por otro lado, elimina el último elemento de un array y lo devuelve. Ambos métodos modifican el array original.
 
 ## Sintaxis
 
 ```jsx
-array.push(elemento1, ..., elementoN);
-array.pop();
+const longitudDelArrayModificado = array.push(elemento1, ..., elementoN);
+
+const ultimoElemento = array.pop();
 ```
 
 ### `.push()`
+
 - Añade los elementos especificados al final del array.
 - Retorna la nueva longitud del array.
 
 ### `.pop()`
+
 - Elimina el último elemento del array.
 - Retorna el valor del elemento eliminado.
 
 ## Ejemplo
 
 ```jsx
-const frutas = ['manzana', 'banana'];
+const frutas = ["manzana", "banana"];
 
 // Añadiendo un elemento al final del array
-frutas.push('naranja');  // ['manzana', 'banana', 'naranja']
+frutas.push("naranja");
+// frutas = ['manzana', 'banana', 'naranja']
 
 // Eliminando el último elemento del array
-const ultimaFruta = frutas.pop();  // ['manzana', 'banana']
+const ultimaFruta = frutas.pop();
+// ultimaFruta = 'naranja'
+// frutas = ['manzana', 'banana']
 ```
 
 ## Usos comunes
@@ -48,9 +55,9 @@ Dado el siguiente array de números, añade el número `6` al final del array ut
 function myFunction(numbers = [1, 2, 3, 4, 5]) {
   const array = Array.from(numbers);
 
-  return /* your code */
+  return /\* your code \*/
 }
-  `}
+`}
   testCases={[
     { input: [[]], output: 1 },
   ]}

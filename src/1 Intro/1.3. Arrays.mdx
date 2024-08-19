@@ -20,9 +20,18 @@ let arrayVacio = [];
 let numeros = [1, 2, 3, 4, 5];
 
 // Array mixto con diferentes tipos de datos
-let mixto = [1, "dos", true, {nombre: "Juan"}, [4, 5]];
+let mixto = [1, "dos", true, { nombre: "Juan" }, [4, 5]];
 ```
 
-Cada valor en un array tiene un índice, que es su posición dentro del array, los índices te permiten acceder y modificar los valores del array directamente. 
-**¡Importante! Se debe tener en cuenta  que los valores de los índices comienzan por el número 0 para el primer elemento.**
+Cada valor en un array tiene un índice, que es su posición dentro del array, los índices te permiten acceder y modificar los valores del array directamente.
+**¡Importante! Se debe tener en cuenta que los valores de los índices comienzan por el número 0 para el primer elemento.**
 
+## ¿Cómo se calcula la longitud de un array?
+
+La longitud de un array se calcula utilizando la propiedad `length`. Esta propiedad devuelve el número de elementos que contiene el array. Es útil para saber cuántos elementos hay en un array y para recorrerlo en bucles.
+
+```javascript
+let frutas = ["manzana", "banana", "naranja"];
+
+console.log(frutas.length); // 3
+```

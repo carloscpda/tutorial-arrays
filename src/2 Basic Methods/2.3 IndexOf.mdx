@@ -1,0 +1,56 @@
+import Playground from "../playground";
+
+# Método `.indexOf()`
+
+El método `indexOf()` busca un elemento en el array y devuelve su posición (índice). Si el elemento no se encuentra, devuelve `-1`.
+
+## Sintaxis
+
+```jsx
+const index = array.indexOf(elemento);
+```
+
+El método `indexOf()` recibe un argumento:
+
+- `elemento`: El elemento que se desea buscar en el array.
+
+## Ejemplo
+
+```jsx
+const frutas = ["manzana", "banana", "naranja"];
+
+// Buscar el índice de 'banana'
+const indiceBanana = frutas.indexOf("banana"); // 1
+
+// Intentar buscar un elemento que no está en el array
+const indicePera = frutas.indexOf("pera"); // -1
+```
+
+## Usos comunes
+
+- Para encontrar la posición de un elemento en un array, por ejemplo, para realizar operaciones condicionales basadas en su presencia.
+
+## Ahora te toca a ti
+
+### Ejercicio 1 🌶️
+
+Dado el siguiente array de cadenas de texto, busca el índice de la palabra `"naranja"` utilizando el método `.indexOf()` y retorna el índice.
+
+<Playground
+  initialValue={`
+function myFunction(words = ["manzana", "banana", "naranja"]) {
+  return /* your code */
+}
+  `}
+  testCases={[
+    { input: [[]], output: -1 },
+    { input: [["manzana", "banana", "naranja"]], output: 2 },
+    { input: [["uno", "dos", "tres"]], output: -1 },
+  ]}
+  solution={`return words.indexOf("naranja");`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.length](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
+- [MDN Web Docs - Array.prototype.indexOf()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)

@@ -39,11 +39,11 @@ const MonacoEditor = ({
         isOk
           ? {
               state: "correct",
-              message: "✅ Correcto",
+              message: "✅ ¡Bien hecho! 🎉",
             }
           : {
               state: "incorrect",
-              message: "❌ Incorrecto",
+              message: "❌ Wooops 🤔, algo no está bien",
             }
       );
     } catch (error) {

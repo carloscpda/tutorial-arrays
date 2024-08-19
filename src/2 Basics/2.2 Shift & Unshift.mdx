@@ -1,0 +1,85 @@
+
+import Playground from "../playground";
+
+# Métodos `.shift()` y `.unshift()`
+
+El método `unshift()` añade uno o más elementos al principio de un array y devuelve la nueva longitud del array. El método `shift()`, por otro lado, elimina el primer elemento de un array y lo devuelve. Ambos métodos modifican el array original **in place**.
+
+## Sintaxis
+
+```jsx
+array.unshift(elemento1, ..., elementoN);
+array.shift();
+```
+
+### `.unshift()`
+- Añade los elementos especificados al principio del array.
+- Retorna la nueva longitud del array.
+
+### `.shift()`
+- Elimina el primer elemento del array.
+- Retorna el valor del elemento eliminado.
+
+## Ejemplo
+
+```jsx
+const frutas = ['manzana', 'banana'];
+
+// Añadiendo un elemento al principio del array
+frutas.unshift('pera');  // ['pera', 'manzana', 'banana']
+
+// Eliminando el primer elemento del array
+const primeraFruta = frutas.shift();  // ['manzana', 'banana']
+```
+
+## Usos comunes
+
+- **`.unshift()`** se utiliza para agregar elementos al principio de una lista, útil para estructuras como colas.
+- **`.shift()`** se usa para eliminar el primer elemento cuando ya no es necesario o para implementar estructuras de datos como colas (FIFO).
+
+## Ahora te toca a ti
+
+### Ejercicio 1
+
+Dado el siguiente array de números, añade el número `0` al principio del array utilizando el método `.unshift()`.
+
+<Playground
+  initialValue={`
+function myFunction(Numbers = [1, 2, 3, 4, 5]) {
+    const numbers = Array.from(Numbers);
+
+    return /* your code */
+}
+  `}
+  testCases={[
+    { input: [[]], output: 1 },
+    { input: [[1, 2, 3]], output: 4 },
+    { input: [[9, 7]], output: 3 },
+  ]}
+  solution={`numbers.unshift(0);`}
+/>
+
+### Ejercicio 2
+
+Dado el siguiente array de cadenas de texto, elimina el primer elemento del array utilizando el método `.shift()` y retorna el array actualizado.
+
+<Playground
+  initialValue={`
+function myFunction(Words = ["apple", "banana", "orange"]) {
+    const words = Array.from(Words);
+
+  return /* your code */
+}
+  `}
+  testCases={[
+    { input: [[]], output: undefined },
+    { input: [["apple", "banana"]], output: "apple" },
+    { input: [["one", "two", "three"]], output: "one" },
+  ]}
+  solution={`return words.shift();`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.unshift()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+- [MDN Web Docs - Array.prototype.shift()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)

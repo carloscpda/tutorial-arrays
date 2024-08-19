@@ -1,0 +1,81 @@
+
+import Playground from "../playground";
+
+# Métodos `.push()` y `.pop()`
+
+El método `push()` añade uno o más elementos al final de un array y devuelve la nueva longitud del array. El método `pop()`, por otro lado, elimina el último elemento de un array y lo devuelve. Ambos métodos modifican el array original **in place**.
+
+## Sintaxis
+
+```jsx
+array.push(elemento1, ..., elementoN);
+array.pop();
+```
+
+### `.push()`
+- Añade los elementos especificados al final del array.
+- Retorna la nueva longitud del array.
+
+### `.pop()`
+- Elimina el último elemento del array.
+- Retorna el valor del elemento eliminado.
+
+## Ejemplo
+
+```jsx
+const frutas = ['manzana', 'banana'];
+
+// Añadiendo un elemento al final del array
+frutas.push('naranja');  // ['manzana', 'banana', 'naranja']
+
+// Eliminando el último elemento del array
+const ultimaFruta = frutas.pop();  // ['manzana', 'banana']
+```
+
+## Usos comunes
+
+- **`.push()`** se utiliza para agregar elementos a una lista dinámica, como una colección de objetos o resultados.
+- **`.pop()`** se usa para quitar el último elemento cuando ya no es necesario o para implementar estructuras de datos como pilas (LIFO).
+
+## Ahora te toca a ti
+
+### Ejercicio 1 🌶️
+
+Dado el siguiente array de números, añade el número `6` al final del array utilizando el método `.push()`.
+
+<Playground
+  initialValue={`
+function myFunction(numbers = [1, 2, 3, 4, 5]) {
+  const array = Array.from(numbers);
+
+  return /* your code */
+}
+  `}
+  testCases={[
+    { input: [[]], output: 1 },
+  ]}
+  solution={`numbers.push(6);`}
+/>
+
+### Ejercicio 2 🌶️
+
+Dado el siguiente array de cadenas de texto, elimina el último elemento del array utilizando el método `.pop()` y retornalo.
+
+<Playground
+  initialValue={`
+function myFunction(words = ["apple", "banana", "orange"]) {
+  return /* your code */
+}
+  `}
+  testCases={[
+    { input: [[]], output: undefined },
+    { input: [["apple", "banana"]], output: "banana" },
+    { input: [["one", "two", "three"]], output: "three" },
+  ]}
+  solution={`words.pop();`}
+/>
+
+## Recursos adicionales
+
+- [MDN Web Docs - Array.prototype.push()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+- [MDN Web Docs - Array.prototype.pop()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)

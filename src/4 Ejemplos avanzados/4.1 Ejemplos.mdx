@@ -1,0 +1,255 @@
+import Playground from "../playground";
+
+# Ponte a prueba 🚀
+
+## Ejercicio 1 🌶️
+
+### Filtrar y transformar objetos en un array
+
+Dado un array de objetos que representan personas con propiedades name, age, y active, devuelve un nuevo array que contenga solo los nombres de las personas activas y cuya edad sea mayor o igual a 18 años.
+
+<Playground
+  initialValue={`
+function myFunction(people = [
+  { name: "Alice", age: 25, active: true },
+  { name: "Bob", age: 17, active: true },
+  { name: "Charlie", age: 32, active: false },
+  { name: "David", age: 22, active: true },
+]) {
+  return /* your code */;
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    {
+      input: [[
+        { name: "Eve", age: 29, active: true },
+        { name: "Frank", age: 16, active: true },
+        { name: "Grace", age: 30, active: false }
+      ]],
+      output: ["Eve"],
+    },
+    {
+      input: [[
+        { name: "Hannah", age: 22, active: true },
+        { name: "Ivy", age: 18, active: true }
+      ]],
+      output: ["Hannah", "Ivy"],
+    },
+  ]}
+  solution={`return people.filter(person => person.active && person.age >= 18).map(person => person.name);`}
+/>
+
+## Ejercicio 2 🌶️🌶️
+
+### Productos más caros ordenados
+
+Dado un array de productos que tienen propiedades name, price, y stock, devuelve los nombres de los tres productos más caros que estén disponibles en stock.
+
+<Playground
+  initialValue={`
+function myFunction(products = [
+  { name: "Laptop", price: 1000, stock: 10 },
+  { name: "Phone", price: 700, stock: 0 },
+  { name: "Tablet", price: 600, stock: 5 },
+  { name: "Monitor", price: 200, stock: 12 },
+  { name: "Keyboard", price: 50, stock: 100 },
+]) {
+  return /* your code */;
+}
+  `}
+  testCases={[
+    { input: [[]], output: [] },
+    {
+      input: [[
+        { name: "Chair", price: 150, stock: 15 },
+        { name: "Desk", price: 250, stock: 5 },
+        { name: "Lamp", price: 90, stock: 0 },
+        { name: "Couch", price: 500, stock: 3 },
+        { name: "Shelf", price: 100, stock: 10 },
+      ]],
+      output: ["Couch", "Desk", "Chair"],
+    },
+    {
+      input: [[
+        { name: "Shoes", price: 120, stock: 20 },
+        { name: "Bag", price: 80, stock: 10 },
+        { name: "Watch", price: 300, stock: 2 },
+        { name: "Hat", price: 60, stock: 5 },
+      ]],
+      output: ["Watch", "Shoes", "Bag"],
+    },
+  ]}
+  solution={`return products.filter(product => product.stock > 0)
+                .sort((a, b) => b.price - a.price)
+                .slice(0, 3).map(product => product.name);`}
+/>
+
+## Ejercicio 3 🌶️🌶️🌶️
+
+### Gestión de inventario de productos
+
+Tienes un inventario de productos que se almacenan en diferentes ubicaciones. Cada producto tiene las propiedades name, locations (que es un array de strings), y stock (cantidad disponible en esa ubicación). Tu tarea es devolver un array de nombres de productos que estén agotados (es decir, que no tengan stock en ninguna de sus ubicaciones).
+
+<Playground
+  initialValue={`
+function myFunction(inventory = [
+  { name: "Laptop", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 0 }] },
+  { name: "Phone", locations: [{ location: "A", stock: 5 }, { location: "B", stock: 0 }] },
+  { name: "Tablet", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 0 }] },
+  { name: "Monitor", locations: [{ location: "A", stock: 1 }, { location: "B", stock: 2 }] },
+]) {
+  const outOfStockProducts = [];
+
+  inventory.forEach( /* your code */ );
+
+  return outOfStockProducts;
+}
+  `}
+  testCases={[
+    {
+      input: [[
+        { name: "Laptop", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 0 }] },
+        { name: "Phone", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 5 }] },
+        { name: "Tablet", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 0 }] }
+      ]],
+      output: ["Laptop", "Tablet"],
+    },
+    {
+      input: [[
+        { name: "Mouse", locations: [{ location: "A", stock: 0 }, { location: "B", stock: 0 }] },
+        { name: "Keyboard", locations: [{ location: "A", stock: 2 }, { location: "B", stock: 3 }] }
+      ]],
+      output: ["Mouse"],
+    },
+    { input: [[]], output: [] }
+  ]}
+  solution={`
+  inventory.forEach(product => {
+    const isOutOfStock = product.locations.every(location => location.stock === 0);
+    
+    if (isOutOfStock) {
+      outOfStockProducts.push(product.name);
+    }
+  });
+  `}
+/>
+
+
+
+
+## Ejercicio 4 🌶️🌶️🌶️🌶️
+
+### Productos más caros por categoría
+
+Dado un array de productos que tienen propiedades name, price, y category, devuelve un objeto que contenga el nombre del producto más caro por cada categoría.
+
+<Playground
+  initialValue={`
+function myFunction(products = [
+  { name: "Laptop", price: 1000, category: "electronics" },
+  { name: "Phone", price: 700, category: "electronics" },
+  { name: "Tablet", price: 600, category: "electronics" },
+  { name: "Monitor", price: 200, category: "electronics" },
+  { name: "Keyboard", price: 50, category: "electronics" },
+]) {
+    const mostExpensiveByCategory = products.reduce( /* your code */ );
+
+    return Object.keys(mostExpensiveByCategory).reduce( /* your code */ );
+    }
+    `}
+    testCases={[
+        { input: [[]], output: {} },
+        {
+        input: [[
+            { name: "Chair", price: 150, category: "furniture" },
+            { name: "Desk", price: 250, category: "furniture" },
+            { name: "Lamp", price: 90, category: "furniture" },
+            { name: "Couch", price: 500, category: "furniture" },
+            { name: "Shelf", price: 100, category: "furniture" },
+        ]],
+        output: { furniture: "Couch" },
+        },
+        {
+        input: [[
+            { name: "Shoes", price: 120, category: "clothing" },
+            { name: "Bag", price: 80, category: "clothing" },
+            { name: "Watch", price: 300, category: "clothing" },
+            { name: "Hat", price: 60, category: "clothing" },
+        ]],
+        output: { clothing: "Watch" },
+        },
+    ]}
+    solution={`const mostExpensiveByCategory = products.reduce((acc, product) => {
+        if (!acc[product.category] || acc[product.category].price < product.price) {
+        acc[product.category] = product;
+        }
+        return acc;
+    }, {});
+    
+    return Object.keys(mostExpensiveByCategory).reduce((acc, category) => {
+        acc[category] = mostExpensiveByCategory[category].name;
+        return acc;
+    }, {});`}
+/>
+
+## Ejercicio 5 🌶️🌶️🌶️🌶️🌶️
+
+### Promedio de edades por categoría
+
+Dado un array de objetos que representan personas con propiedades name, age, y category, devuelve un array de objetos que contenga la categoría y el promedio de edad de las personas agrupadas por categoría.
+
+<Playground
+  initialValue={`
+function myFunction(people = [
+  { name: "Alice", age: 25, category: "student" },
+  { name: "Bob", age: 30, category: "teacher" },
+  { name: "Charlie", age: 35, category: "student" },
+  { name: "David", age: 40, category: "teacher" },
+]) {
+    const sumByCategory = people.reduce( /* your code */ );
+    
+    const countByCategory = people.reduce( /* your code */ );
+    
+    return Object.entries(sumByCategory).map( /* your code */ );
+}
+`}
+    testCases={[
+        { input: [[]], output: [] },
+        {
+        input: [[
+            { name: "Eve", age: 29, category: "student" },
+            { name: "Frank", age: 16, category: "teacher" },
+            { name: "Grace", age: 30, category: "student" }
+        ]],
+        output: [
+            { category: "student", averageAge: 29.5 },
+            { category: "teacher", averageAge: 16 }
+        ],
+        },
+        {
+        input: [[
+            { name: "Hannah", age: 22, category: "teacher" },
+            { name: "Ivy", age: 18, category: "student" }
+        ]],
+        output: [
+            { category: "teacher", averageAge: 22 },
+            { category: "student", averageAge: 18 }
+        ],
+        },
+    ]}
+    solution={`const sumByCategory = people.reduce((acc, person) => {
+        acc[person.category] = (acc[person.category] || 0) + person.age;
+        return acc;
+    }, {});
+    
+    const countByCategory = people.reduce((acc, person) => {
+        acc[person.category] = (acc[person.category] || 0) + 1;
+        return acc;
+    }, {});
+    
+    return Object.entries(sumByCategory).map(([category, sum]) => ({
+        category,
+        averageAge: sum / countByCategory[category]
+    }));`}
+/>
